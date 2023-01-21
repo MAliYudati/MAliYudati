@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 
 import 'package:main/confirm_stl.dart';
 
-class PdPage extends StatefulWidget {
+class DataPage extends StatefulWidget {
   @override
-  _PdPageState createState() => _PdPageState();
+  _DataPageState createState() => _DataPageState();
 }
 
-class _PdPageState extends State<PdPage> with SingleTickerProviderStateMixin {
+class _DataPageState extends State<DataPage>
+    with SingleTickerProviderStateMixin {
   late TabController _controller;
   TextEditingController controller = TextEditingController();
   TextEditingController saldo = TextEditingController();
@@ -219,7 +220,7 @@ class _PdPageState extends State<PdPage> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pulsa Elektrik'),
+        title: Text('Data Elektrik'),
         backgroundColor: Colors.greenAccent[700],
       ),
       body: ListView(
@@ -262,8 +263,8 @@ class _PdPageState extends State<PdPage> with SingleTickerProviderStateMixin {
                           ElevatedButton(
                             onPressed: () {
                               setState(() {
-                                nominal = "5000";
-                                bayar = "6000";
+                                nominal = "1GB";
+                                bayar = "7000";
                                 showModalBottomSheet(
                                   isDismissible: false,
                                   context: context,
@@ -291,7 +292,7 @@ class _PdPageState extends State<PdPage> with SingleTickerProviderStateMixin {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceAround,
                                           children: [
-                                            Text('Pulsa'),
+                                            Text('Nominal'),
                                             Text(nominal),
                                           ],
                                         ),
@@ -307,7 +308,7 @@ class _PdPageState extends State<PdPage> with SingleTickerProviderStateMixin {
                                                   fontWeight: FontWeight.bold),
                                             ),
                                             Text(
-                                              bayar,
+                                              'Rp 7.000',
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold),
                                             ),
@@ -353,13 +354,13 @@ class _PdPageState extends State<PdPage> with SingleTickerProviderStateMixin {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.greenAccent[700],
                             ),
-                            child: Text("5.000"),
+                            child: Text("1GB"),
                           ),
                           ElevatedButton(
                             onPressed: () {
                               setState(() {
-                                nominal = "10000";
-                                bayar = "11000";
+                                nominal = "2GB";
+                                bayar = "14000";
                                 showModalBottomSheet(
                                   isDismissible: false,
                                   context: context,
@@ -387,7 +388,7 @@ class _PdPageState extends State<PdPage> with SingleTickerProviderStateMixin {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceAround,
                                           children: [
-                                            Text('Pulsa'),
+                                            Text('Nominal'),
                                             Text(nominal),
                                           ],
                                         ),
@@ -403,7 +404,7 @@ class _PdPageState extends State<PdPage> with SingleTickerProviderStateMixin {
                                                   fontWeight: FontWeight.bold),
                                             ),
                                             Text(
-                                              'Rp 11.000',
+                                              'Rp 14.000',
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold),
                                             ),
@@ -449,7 +450,7 @@ class _PdPageState extends State<PdPage> with SingleTickerProviderStateMixin {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.greenAccent[700],
                             ),
-                            child: Text("10.000"),
+                            child: Text("2GB"),
                           )
                         ],
                       ),
@@ -459,103 +460,7 @@ class _PdPageState extends State<PdPage> with SingleTickerProviderStateMixin {
                           ElevatedButton(
                             onPressed: () {
                               setState(() {
-                                nominal = "15000";
-                                bayar = "16000";
-                                showModalBottomSheet(
-                                  isDismissible: false,
-                                  context: context,
-                                  builder: (context) {
-                                    // Using Wrap makes the bottom sheet height the height of the content.
-                                    // Otherwise, the height will be half the height of the screen.
-                                    return Wrap(
-                                      children: [
-                                        ListTile(
-                                          title: Text(
-                                            'Informasi Transaksi',
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Text('Nomor'),
-                                            Text(controller.text),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Text('Pulsa'),
-                                            Text(nominal),
-                                          ],
-                                        ),
-                                        Text(
-                                            "----------------------------------------------------------------------------------------------------"),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Text(
-                                              'Total Pembayaran',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                            Text(
-                                              'Rp 16.000',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            ElevatedButton(
-                                                onPressed: () =>
-                                                    Navigator.pop(context),
-                                                style: ElevatedButton.styleFrom(
-                                                  backgroundColor:
-                                                      Colors.greenAccent[700],
-                                                ),
-                                                child: Text("Ubah")),
-                                            ElevatedButton(
-                                                onPressed: () {
-                                                  Navigator.push(context,
-                                                      MaterialPageRoute(
-                                                          builder: (context) {
-                                                    return ConfirmCoba(
-                                                        controller.text,
-                                                        nominal,
-                                                        bayar,
-                                                        detail);
-                                                  }));
-                                                },
-                                                style: ElevatedButton.styleFrom(
-                                                  backgroundColor:
-                                                      Colors.greenAccent[700],
-                                                ),
-                                                child: Text("Konfirmasi"))
-                                          ],
-                                        )
-                                      ],
-                                    );
-                                  },
-                                );
-                              });
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.greenAccent[700],
-                            ),
-                            child: Text("15.000"),
-                          ),
-                          ElevatedButton(
-                            onPressed: () {
-                              setState(() {
-                                nominal = "20000";
+                                nominal = "3GB";
                                 bayar = "21000";
                                 showModalBottomSheet(
                                   isDismissible: false,
@@ -646,7 +551,103 @@ class _PdPageState extends State<PdPage> with SingleTickerProviderStateMixin {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.greenAccent[700],
                             ),
-                            child: Text("20.000"),
+                            child: Text("3GB"),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                nominal = "5GB";
+                                bayar = "28000";
+                                showModalBottomSheet(
+                                  isDismissible: false,
+                                  context: context,
+                                  builder: (context) {
+                                    // Using Wrap makes the bottom sheet height the height of the content.
+                                    // Otherwise, the height will be half the height of the screen.
+                                    return Wrap(
+                                      children: [
+                                        ListTile(
+                                          title: Text(
+                                            'Informasi Transaksi',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Text('Nomor'),
+                                            Text(controller.text),
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Text('Pulsa'),
+                                            Text(nominal),
+                                          ],
+                                        ),
+                                        Text(
+                                            "----------------------------------------------------------------------------------------------------"),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Text(
+                                              'Total Pembayaran',
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            Text(
+                                              'Rp 28.000',
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            ElevatedButton(
+                                                onPressed: () =>
+                                                    Navigator.pop(context),
+                                                style: ElevatedButton.styleFrom(
+                                                  backgroundColor:
+                                                      Colors.greenAccent[700],
+                                                ),
+                                                child: Text("Ubah")),
+                                            ElevatedButton(
+                                                onPressed: () {
+                                                  Navigator.push(context,
+                                                      MaterialPageRoute(
+                                                          builder: (context) {
+                                                    return ConfirmCoba(
+                                                        controller.text,
+                                                        nominal,
+                                                        bayar,
+                                                        detail);
+                                                  }));
+                                                },
+                                                style: ElevatedButton.styleFrom(
+                                                  backgroundColor:
+                                                      Colors.greenAccent[700],
+                                                ),
+                                                child: Text("Konfirmasi"))
+                                          ],
+                                        )
+                                      ],
+                                    );
+                                  },
+                                );
+                              });
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.greenAccent[700],
+                            ),
+                            child: Text("5GB"),
                           )
                         ],
                       ),
@@ -656,8 +657,8 @@ class _PdPageState extends State<PdPage> with SingleTickerProviderStateMixin {
                           ElevatedButton(
                             onPressed: () {
                               setState(() {
-                                nominal = "30000";
-                                bayar = "31000";
+                                nominal = "10GB";
+                                bayar = "50000";
                                 showModalBottomSheet(
                                   isDismissible: false,
                                   context: context,
@@ -701,7 +702,7 @@ class _PdPageState extends State<PdPage> with SingleTickerProviderStateMixin {
                                                   fontWeight: FontWeight.bold),
                                             ),
                                             Text(
-                                              'Rp 31.000',
+                                              'Rp 50.000',
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold),
                                             ),
@@ -747,13 +748,13 @@ class _PdPageState extends State<PdPage> with SingleTickerProviderStateMixin {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.greenAccent[700],
                             ),
-                            child: Text("30.000"),
+                            child: Text("10GB"),
                           ),
                           ElevatedButton(
                             onPressed: () {
                               setState(() {
-                                nominal = "50000";
-                                bayar = "51000";
+                                nominal = "25GB";
+                                bayar = "75000";
                                 showModalBottomSheet(
                                   isDismissible: false,
                                   context: context,
@@ -797,7 +798,7 @@ class _PdPageState extends State<PdPage> with SingleTickerProviderStateMixin {
                                                   fontWeight: FontWeight.bold),
                                             ),
                                             Text(
-                                              'Rp 51.000',
+                                              'Rp 75.000',
                                               style: TextStyle(
                                                   fontWeight: FontWeight.bold),
                                             ),
@@ -843,204 +844,7 @@ class _PdPageState extends State<PdPage> with SingleTickerProviderStateMixin {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.greenAccent[700],
                             ),
-                            child: Text("50.000"),
-                          )
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          ElevatedButton(
-                            onPressed: () {
-                              setState(() {
-                                nominal = "75000";
-                                bayar = "76000";
-                                showModalBottomSheet(
-                                  isDismissible: false,
-                                  context: context,
-                                  builder: (context) {
-                                    // Using Wrap makes the bottom sheet height the height of the content.
-                                    // Otherwise, the height will be half the height of the screen.
-                                    return Wrap(
-                                      children: [
-                                        ListTile(
-                                          title: Text(
-                                            'Informasi Transaksi',
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Text('Nomor'),
-                                            Text(controller.text),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Text('Pulsa'),
-                                            Text(nominal),
-                                          ],
-                                        ),
-                                        Text(
-                                            "----------------------------------------------------------------------------------------------------"),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Text(
-                                              'Total Pembayaran',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                            Text(
-                                              'Rp 76.000',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            ElevatedButton(
-                                                onPressed: () =>
-                                                    Navigator.pop(context),
-                                                style: ElevatedButton.styleFrom(
-                                                  backgroundColor:
-                                                      Colors.greenAccent[700],
-                                                ),
-                                                child: Text("Ubah")),
-                                            ElevatedButton(
-                                                onPressed: () {
-                                                  Navigator.push(context,
-                                                      MaterialPageRoute(
-                                                          builder: (context) {
-                                                    return ConfirmCoba(
-                                                        controller.text,
-                                                        nominal,
-                                                        bayar,
-                                                        detail);
-                                                  }));
-                                                },
-                                                style: ElevatedButton.styleFrom(
-                                                  backgroundColor:
-                                                      Colors.greenAccent[700],
-                                                ),
-                                                child: Text("Konfirmasi"))
-                                          ],
-                                        )
-                                      ],
-                                    );
-                                  },
-                                );
-                              });
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.greenAccent[700],
-                            ),
-                            child: Text("75.000"),
-                          ),
-                          ElevatedButton(
-                            onPressed: () {
-                              setState(() {
-                                nominal = "100000";
-                                bayar = "100000";
-                                showModalBottomSheet(
-                                  isDismissible: false,
-                                  context: context,
-                                  builder: (context) {
-                                    // Using Wrap makes the bottom sheet height the height of the content.
-                                    // Otherwise, the height will be half the height of the screen.
-                                    return Wrap(
-                                      children: [
-                                        ListTile(
-                                          title: Text(
-                                            'Informasi Transaksi',
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Text('Nomor'),
-                                            Text(controller.text),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Text('Pulsa'),
-                                            Text(nominal),
-                                          ],
-                                        ),
-                                        Text(
-                                            "----------------------------------------------------------------------------------------------------"),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Text(
-                                              'Total Pembayaran',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                            Text(
-                                              'Rp 100.000',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            ElevatedButton(
-                                                onPressed: () =>
-                                                    Navigator.pop(context),
-                                                style: ElevatedButton.styleFrom(
-                                                  backgroundColor:
-                                                      Colors.greenAccent[700],
-                                                ),
-                                                child: Text("Ubah")),
-                                            ElevatedButton(
-                                                onPressed: () {
-                                                  Navigator.push(context,
-                                                      MaterialPageRoute(
-                                                          builder: (context) {
-                                                    return ConfirmCoba(
-                                                        controller.text,
-                                                        nominal,
-                                                        bayar,
-                                                        detail);
-                                                  }));
-                                                },
-                                                style: ElevatedButton.styleFrom(
-                                                  backgroundColor:
-                                                      Colors.greenAccent[700],
-                                                ),
-                                                child: Text("Konfirmasi"))
-                                          ],
-                                        )
-                                      ],
-                                    );
-                                  },
-                                );
-                              });
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.greenAccent[700],
-                            ),
-                            child: Text("100.000"),
+                            child: Text("25GB"),
                           )
                         ],
                       ),
@@ -1064,7 +868,7 @@ class _PdPageState extends State<PdPage> with SingleTickerProviderStateMixin {
   }
 }
 
-class BlueBox extends PdPage {
+class BlueBox extends DataPage {
   Widget build(BuildContext context) {
     return Container(
       width: 65,

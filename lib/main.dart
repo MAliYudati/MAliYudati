@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_session_manager/flutter_session_manager.dart';
 import 'package:main/login_page.dart';
+import 'package:main/profile.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  dynamic token = SessionManager().get('token');
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: LoginPage(),
-    );
-  }
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: token != '' ? LoginPage() : Profile(),
+  ));
 }
